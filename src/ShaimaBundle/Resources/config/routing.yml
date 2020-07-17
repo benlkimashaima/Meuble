@@ -1,6 +1,6 @@
-shaima_homepage:
-    path:     /
-    defaults: { _controller: ShaimaBundle:Default:index }
+AfficherStockh:
+  path:     /
+  defaults: { _controller: ShaimaBundle:Default:afficheStock }
 shaima:
     path:     /page
     defaults: { _controller: ShaimaBundle:Default:page }
@@ -25,3 +25,6 @@ modifierStock:
 AfficherMeuble:
   path:     /AfficherMeuble
   defaults: { _controller: ShaimaBundle:Default:afficheMeuble }
+ajouterMeuble:
+  path:     /ajouterMeuble
+  defaults: { _controller: ShaimaBundle:Default:AjouterMeuble}

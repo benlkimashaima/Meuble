@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">les Types des  Meubles </div>
+                    <div class="panel-heading">les  Meubles </div>
                     <div class="panel-body">
                         <div class="bootstrap-table">
 
@@ -32,31 +32,18 @@
 
                                     <table id="type"  sort-name="name" data-sort-order="desc" class="table table-hover">
                                         <thead>
-                                        <tr>
-                                            <th style="">
-                                                <div class="th-inner sortable">Libelle  </div>
-                                            </th>
-                                            <th style="">
-                                                <div class="th-inner sortable">quantite  </div>
-                                            <th style="">
-                                                <div class="th-inner sortable">prix  </div>
-                                            <th style="">
-                                                <div class="th-inner sortable">image  </div>
-                                            <th style="">
-                                                <div class="th-inner sortable">date  </div>
-                                            <th style="">
-                                                <div class="th-inner sortable">type de Meuble  </div>
+                                        <tr class="no-records-found">
+                                            <td colspan="4">libelle</td>
+                                            <td colspan="4">quantite</td>
+                                            <td colspan="4">prix</td>
+                                            <td colspan="4">image</td>
+                                            <td colspan="4">date</td>
+                                            <td colspan="4">type</td>
+
+                                            <td colspan="4">Action</td>
 
 
-                                            </th>
 
-                                            </th>
-
-                                            </th>
-
-                                            </th>
-
-                                            </th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -88,7 +75,7 @@
                                         </tbody>
                                     </table>
                                     <div >
-                                        <a >     <button    class="btn btn-primary"> Ajouter</button> </a>
+                                        <a href="{{ path('ajouterMeuble') }}">     <button    class="btn btn-primary"> Ajouter</button> </a>
 
 
 

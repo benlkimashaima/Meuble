@@ -86,9 +86,10 @@
       <command value="s doctrine:generate:entity" />
       <command value="s doctrine:schema:update" />
       <command value="s doctrine:schema:create" />
-      <command value="s doctrine:schema:update --force" />
       <command value="s doctrine:generate:form" />
       <command value="s doctrine:generate:form ShaimaBundle:stock" />
+      <command value="s doctrine:generate:form ShaimaBundle:Meuble" />
+      <command value="s doctrine:schema:update --force" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -114,7 +115,7 @@
       <option name="presentableId" value="Default" />
       <updated>1594928149574</updated>
       <workItem from="1594928150673" duration="5953000" />
-      <workItem from="1594972032000" duration="12595000" />
+      <workItem from="1594972032000" duration="19667000" />
     </task>
     <servers />
   </component>

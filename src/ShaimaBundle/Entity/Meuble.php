@@ -3,6 +3,8 @@
 namespace ShaimaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert ;
+
 
 /**
  * Meuble
@@ -53,6 +55,7 @@ class Meuble
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="date")
+     * @Assert\LessThan("today",message="date inferieur date systeme")
      */
     private $date;
 
@@ -62,9 +65,6 @@ class Meuble
      */
     private $stock;
 
-
-
-
     /**
      * @return mixed
      */
@@ -72,6 +72,17 @@ class Meuble
     {
         return $this->stock;
     }
+
+    /**
+     * @param mixed $stock
+     */
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+    }
+
+
+
 
     /**
      * @return int
@@ -89,13 +100,7 @@ class Meuble
         $this->id = $id;
     }
 
-    /**
-     * @param mixed $stock
-     */
-    public function setStock($stock)
-    {
-        $this->stock = $stock;
-    }
+
 
     /**
      * Set libelle

@@ -2,11 +2,13 @@
 
 namespace ShaimaBundle\Controller;
 
+use ShaimaBundle\Entity\Meuble;
 use ShaimaBundle\Entity\stock;
+use ShaimaBundle\Form\MeubleType;
 use ShaimaBundle\Form\RechercheType;
 use ShaimaBundle\Form\stockType;
 use ShaimaBundle\Repository\stockRepository;
-use StockBundle\Entity\Don;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -98,7 +100,7 @@ class DefaultController extends Controller
                 ->getRepository(stock::class)
                 ->findAll();
         }
-        return $this->render('ShaimaBundle:template:read_type_Meuble.html.twig\'',
+        return $this->render('ShaimaBundle:template:read_type_Meuble.html.twig',
             array('form' => $form->createView(), 'Dons' => $Dons));
     }
     public function afficheMeubleAction()
@@ -107,4 +109,20 @@ class DefaultController extends Controller
         $Dons= $em->getRepository("ShaimaBundle:Meuble")->findAll();
         return $this->render('ShaimaBundle:template:read_meuble.html.twig',array('Dons'=>$Dons));
     }
+    public function AjouterMeubleAction(Request $request)
+    { $Stock = new \ShaimaBundle\Entity\Meuble();
+        $form = $this->createForm(\ShaimaBundle\Form\MeubleType::class,$Stock);
+        $form->handleRequest($request);
+        if($form->isSubmitted()&& $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Stock);
+            $em->flush();
+
+            $this->addFlash('info',
+                ' Stock Added successufly!'
+
+            );
+            return $this->redirectToRoute('AfficherMeuble');
+        }
+        return $this->render('ShaimaBundle:template:add_meuble.html.twig', array("form"=>$form->createView()));}
 }
