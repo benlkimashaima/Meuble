@@ -1,0 +1,27 @@
+shaima_homepage:
+    path:     /
+    defaults: { _controller: ShaimaBundle:Default:index }
+shaima:
+    path:     /page
+    defaults: { _controller: ShaimaBundle:Default:page }
+layout:
+    path:     /layout
+    defaults: { _controller: ShaimaBundle:Default:layout }
+wight:
+  path:     /wight
+  defaults: { _controller: ShaimaBundle:Default:wigh }
+AfficherStock:
+  path:     /AfficherStock
+  defaults: { _controller: ShaimaBundle:Default:afficheStock }
+deleteStock:
+  path:     /deleteStock/{id}
+  defaults: { _controller: ShaimaBundle:Default:deleteStock }
+ajouterStock:
+  path:     /ajouterStock
+  defaults: { _controller: ShaimaBundle:Default:ajouterStock }
+modifierStock:
+  path:     /modifierStock/{id}
+  defaults: { _controller: ShaimaBundle:Default:modifierStock }
+AfficherMeuble:
+  path:     /AfficherMeuble
+  defaults: { _controller: ShaimaBundle:Default:afficheMeuble }

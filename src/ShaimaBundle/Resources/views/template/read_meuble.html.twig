@@ -1,0 +1,138 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                <li class="active">Icons</li>
+            </ol>
+        </div><!--/.row-->
+
+
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">les Types des  Meubles </div>
+                    <div class="panel-body">
+                        <div class="bootstrap-table">
+
+                            <div class="pull-center search">
+                                <input id ="recherche"class="form-control" type="text" placeholder="                                                                                                  Chercher"></div>
+                            <br>
+                            <div class="fixed-table-container">
+                                <div class="fixed-table-header">
+
+
+
+                                </div>
+                                <div class="fixed-table-body">
+
+                                    <table id="type"  sort-name="name" data-sort-order="desc" class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th style="">
+                                                <div class="th-inner sortable">Libelle  </div>
+                                            </th>
+                                            <th style="">
+                                                <div class="th-inner sortable">quantite  </div>
+                                            <th style="">
+                                                <div class="th-inner sortable">prix  </div>
+                                            <th style="">
+                                                <div class="th-inner sortable">image  </div>
+                                            <th style="">
+                                                <div class="th-inner sortable">date  </div>
+                                            <th style="">
+                                                <div class="th-inner sortable">type de Meuble  </div>
+
+
+                                            </th>
+
+                                            </th>
+
+                                            </th>
+
+                                            </th>
+
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for don in Dons %}
+
+                                            <tr class="no-records-found">
+                                                <td colspan="4">{{ don.libelle | upper }}</td>
+                                                <td colspan="4">{{ don.quantite}}</td>
+                                                <td colspan="4">{{ don.prix }}</td>
+                                                <td colspan="4">{{ don.image }}</td>
+                                                <td colspan="4">{{ don.date|date("m-d-y")}}</td>
+                                                <td colspan="4">{{ don.stock.type}}</td>
+
+
+
+
+                                                <td  >
+                                                    <a   >
+                                                        modify
+                                                        <div ></div></a>
+                                                    <a >
+                                                        delete
+                                                        <div c></div></a>
+                                                </td>
+
+                                            </tr>
+
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    <div >
+                                        <a >     <button    class="btn btn-primary"> Ajouter</button> </a>
+
+
+
+                                    </div>
+                                </div>
+
+                            </div></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div><!--/.col-->
+    </div><!--/.row-->
+    </div>	<!--/.main-->
+    <script>
+        $(document).ready(function(){
+            $('#recherche').keyup(function(){
+                search_table($(this).val());
+            });
+            function search_table(value){
+                $('#type tbody tr').each(function(){
+                    var found = 'false';
+                    $(this).each(function(){
+                        if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                        {
+                            found = 'true';
+                        }
+                    });
+                    if(found == 'true')
+                    {
+                        $(this).show();
+
+                    }
+                    else
+                    {
+                        $(this).hide();
+
+                    }
+                });
+            }
+        });
+    </script>
+{% endblock %}
