@@ -8,6 +8,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    images_directory: '%kernel.project_dir%/web/uploads/images'
 
 framework:
     #esi: ~
@@ -38,6 +39,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        pathToWeb: "%kernel.root_dir%/../web"
 
 # Doctrine Configuration
 doctrine:
@@ -72,3 +75,4 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+# app/config/config.yml (or config/packages/knp_snappy.yaml if using Symfony4 and the Flex recipe)

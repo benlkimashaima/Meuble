@@ -18,19 +18,18 @@
                     <div class="panel-heading">les  Meubles </div>
                     <div class="panel-body">
                         <div class="bootstrap-table">
+                            <script src="{{ asset('tempt/js/jquery-1.11.1.min.js') }}"></script>
 
                             <div class="pull-center search">
-                                <input id ="recherche"class="form-control" type="text" placeholder="                                                                                                  Chercher"></div>
+                                <input id ="search"class="form-control" type="search" placeholder="                                                                                                                          Chercher                 "></th>
+
+                                </form>
                             <br>
                             <div class="fixed-table-container">
-                                <div class="fixed-table-header">
 
-
-
-                                </div>
                                 <div class="fixed-table-body">
 
-                                    <table id="type"  sort-name="name" data-sort-order="desc" class="table table-hover">
+                                    <table id="type" sort-name="name" data-sort-order="desc" class="table table-hover">
                                         <thead>
                                         <tr class="no-records-found">
                                             <td colspan="4">libelle</td>
@@ -40,7 +39,6 @@
                                             <td colspan="4">date</td>
                                             <td colspan="4">type</td>
 
-                                            <td colspan="4">Action</td>
 
 
 
@@ -53,7 +51,7 @@
                                                 <td colspan="4">{{ don.libelle | upper }}</td>
                                                 <td colspan="4">{{ don.quantite}}</td>
                                                 <td colspan="4">{{ don.prix }}</td>
-                                                <td colspan="4">{{ don.image }}</td>
+                                                <td colspan="4"><img src ="{{ asset('uploads/images/'~don.image ) }}" height="100px" width="250px"> </td>
                                                 <td colspan="4">{{ don.date|date("m-d-y")}}</td>
                                                 <td colspan="4">{{ don.stock.type}}</td>
 
@@ -61,12 +59,13 @@
 
 
                                                 <td  >
-                                                    <a   >
-                                                        modify
+                                                    <a  href="{{path('modifiermeuble',{'id':don.id})}}" class="btn btn-blue btn-round"  >
+                                                        Modifier
+                                                        <div >    </div></a>
+
+                                                    <a  href="{{path('deleteMeuble',{'id':don.id})}}" class="btn btn-blue btn-round"   >
+                                                        Supprimer
                                                         <div ></div></a>
-                                                    <a >
-                                                        delete
-                                                        <div c></div></a>
                                                 </td>
 
                                             </tr>
@@ -77,6 +76,7 @@
                                     <div >
                                         <a href="{{ path('ajouterMeuble') }}">     <button    class="btn btn-primary"> Ajouter</button> </a>
 
+                                        <a href="{{ path('refugee_afficherDetasille') }}" class="btn btn-primary btn-round">imprimer </a>
 
 
                                     </div>
@@ -96,7 +96,7 @@
     </div>	<!--/.main-->
     <script>
         $(document).ready(function(){
-            $('#recherche').keyup(function(){
+            $('#search').keyup(function(){
                 search_table($(this).val());
             });
             function search_table(value){
@@ -122,4 +122,5 @@
             }
         });
     </script>
+
 {% endblock %}

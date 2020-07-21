@@ -10,7 +10,15 @@ use ShaimaBundle\Form\stockType;
 use ShaimaBundle\Repository\stockRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Symfony\Component\HttpFoundation\Response;
+
+
+
 
 class DefaultController extends Controller
 {
@@ -114,9 +122,21 @@ class DefaultController extends Controller
         $form = $this->createForm(\ShaimaBundle\Form\MeubleType::class,$Stock);
         $form->handleRequest($request);
         if($form->isSubmitted()&& $form->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($Stock);
-            $em->flush();
+            /**
+             * @var UploadedFile $file
+             *
+             */
+            $file=$Stock->getImage();
+            $fileName =md5(uniqid()).'.'.$file->guessExtension();
+           $file->move(
+                $this->getParameter('images_directory'), $fileName);
+
+
+            $Stock->setImage($fileName);
+
+            $entityManager=$this->getDoctrine()->getManager();
+            $entityManager->persist($Stock);
+            $entityManager->flush();
 
             $this->addFlash('info',
                 ' Stock Added successufly!'
@@ -125,4 +145,90 @@ class DefaultController extends Controller
             return $this->redirectToRoute('AfficherMeuble');
         }
         return $this->render('ShaimaBundle:template:add_meuble.html.twig', array("form"=>$form->createView()));}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public function deleteMeubleAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $Dons=$em->getRepository(Meuble::class)->find($id);
+        $em->remove($Dons);
+        $em->flush();
+        $this->addFlash('infos',
+            ' Meuble Deleted successufly!'
+
+        );
+        return $this->redirectToRoute('AfficherMeuble');
+    }
+    function modifierMeubleAction(Request $request,$id){
+        $Don =new Meuble();
+        $em=$this->getDoctrine()->getManager();
+        $Don=$em->getRepository("ShaimaBundle:Meuble")->find($id);
+
+        $Form=$this->createForm(MeubleType::class,$Don) ;
+        $Form->handleRequest($request);
+        if($Form->isSubmitted() && $Form->isValid()){
+            /**
+             * @var UploadedFile $file
+             *
+             */
+            $file=$Don->getImage();
+            $fileName =md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('images_directory'), $fileName);
+
+
+            $Don->setImage($fileName);
+
+            $entityManager=$this->getDoctrine()->getManager();
+            $entityManager->persist($Don);
+            $entityManager->flush();
+
+            $em->flush();
+
+            return $this->redirectToRoute('AfficherMeuble');
+
+        }
+        return $this->render('ShaimaBundle:template:modifier_Meuble.html.twig',array('form'=>$Form->createView()));
+    }
+    public  function pdfAction (  )
+    {
+
+        $pdfOptions = new Options();
+
+        $pdfOptions->set('defaultFront', 'Arial');
+        $em = $this->getDoctrine()->getManager();
+        $Dons = $em->getRepository("ShaimaBundle:Meuble")->findAll();
+
+        $dompdf = new Dompdf ($pdfOptions);
+        $html = $this->renderView('ShaimaBundle:template:PDF_meuble.html.twig', array( 'Dons' => $Dons)
+        );
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        $dompdf->stream("mypdf.pdf", ["Attachment" => false]);
+
+
+    }
 }

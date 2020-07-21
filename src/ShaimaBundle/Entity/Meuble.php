@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert ;
 
 
+
 /**
  * Meuble
  *
@@ -39,15 +40,16 @@ class Meuble
 
     /**
      * @var float
-     *
      * @ORM\Column(name="prix", type="float")
+     *
      */
     private $prix;
 
     /**
-     * @var string
+     * @ORM\Column(type="string")
      *
-     * @ORM\Column(name="image", type="string", length=6355)
+     * @Assert\NotBlank(message="Ajouter une image jpg")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
      */
     private $image;
 

@@ -28,3 +28,15 @@ AfficherMeuble:
 ajouterMeuble:
   path:     /ajouterMeuble
   defaults: { _controller: ShaimaBundle:Default:AjouterMeuble}
+deleteMeuble:
+  path:     /deleteMeuble/{id}
+  defaults: { _controller: ShaimaBundle:Default:deleteMeuble }
+modifiermeuble:
+  path:     /modifiermeuble/{id}
+  defaults: { _controller: ShaimaBundle:Default:modifierMeuble }
+refugee_afficherDetasille:
+  path:     /pdf
+  defaults: { _controller: ShaimaBundle:Default:pdf }
+refugee_afficherDetaille:
+  path:     /afficherD/{id}
+  defaults: { _controller: ShaimaBundle:Default:afficherDetaille }

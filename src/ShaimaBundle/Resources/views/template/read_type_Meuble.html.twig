@@ -18,9 +18,13 @@
                     <div class="panel-heading">les Types des  Meubles </div>
                     <div class="panel-body">
                         <div class="bootstrap-table">
+                            <script src="{{ asset('tempt/js/jquery-1.11.1.min.js') }}"></script>
 
                             <div class="pull-center search">
-                                <input id ="recherche"class="form-control" type="text" placeholder="                                                                                                  Chercher"></div>
+                                <input id ="search"class="form-control" type="search" placeholder="                                                                                                                          Chercher                 "></th>
+
+                            </form>
+
                             <br>
                             <div class="fixed-table-container">
                                 <div class="fixed-table-header">
@@ -52,13 +56,12 @@
 
                                             <tr class="no-records-found">
                                         <td colspan="4">{{ stock.type }}</td>
-                                       <td  >
+                                       <td>
                                         <a  href="{{path('modifierStock',{'id':stock.id})}}" >
-                                            modify
-                                            <div ></div></a>
+                                            Modifier
                                         <a  href="{{path('deleteStock',{'id':stock.id})}}"  >
-                                            delete
-                                            <div c></div></a>
+                                            Supprimer
+                                            <div>      </div></a>
                                         </td>
 
                                          </tr>
@@ -67,7 +70,7 @@
                                        </tbody>
                                     </table>
                                     <div >
-                                        <a href="{{ path('ajouterStock') }}">     <button    class="btn btn-primary"> Ajouter</button> </a>
+                                        <a href="{{ path('ajouterStock') }}">     <button    class="btn btn-primary"> Ajouter Type  </button> </a>
 
 
 
@@ -88,7 +91,7 @@
     </div>	<!--/.main-->
     <script>
         $(document).ready(function(){
-            $('#recherche').keyup(function(){
+            $('#search').keyup(function(){
                 search_table($(this).val());
             });
             function search_table(value){

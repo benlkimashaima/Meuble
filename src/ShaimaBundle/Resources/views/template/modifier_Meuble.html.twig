@@ -1,6 +1,5 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-    <script src="{{ asset('tempt/js2/jquery-1.11.1.min.js') }}"></script>
 
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="row">
@@ -8,40 +7,30 @@
                 <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
                 <li class="active">Icons</li>
             </ol>
-
         </div><!--/.row-->
         <div class="row">
             {{ form_start(form) }}
 
             <div class="col-lg-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Ajouter  Votre Type  de meuble </div>
+                        <div class="panel-heading">Modifier  Votre Type  de meuble </div>
                     <div class="panel-body">
                         <div class="col-md-6">
                             <form role="form">
 
                                 <div class="form-group">
                                     <label>Libelle :</label>
-                                    {{ form_widget(form.libelle, {'attr': { 'class' : 'form-control' , 'style': 'width:450px;','placeholder':"Libelle.....!"}}) }}
-                                    <div >
-                                        <label >Quantite :</label>
+                                    {{ form_widget(form.libelle, {'attr': { 'class' : 'form-control' , 'style': 'width:450px;','placeholder':"Libelle....."}}) }}
+                                    <label>Quantite :</label>
 
-                                        <br>
+                                    {{ form_widget(form.quantite, {'attr': { 'class' : 'form-control' , 'style': 'width:550px;','type':'number','min':'0','step':'1','pattern':'\d='}}) }}
+                                    <label>Prix :</label>
 
-                                        {{ form_widget(form.quantite, {'attr': { 'class' : 'form-control' , 'style': 'width:550px;','type':'number','min':'0','step':'1','pattern':'\d=' ,'placeholder':"Quantite.....!"}}) }}
-                                    </div>
-
-                                    <div class="form-group label-floating is-empty bmd-form-group">
-                                        <label class="bmd-label-floating" style="width: 120px;">Prix :</label>
+                                    {{ form_widget(form.prix, {'attr': { 'class' : 'form-control' , 'style': 'width:550px;'}}) }}
+                                    <label>image :</label>
 
 
-                                        {{ form_widget(form.prix, {'attr': { 'class' : 'form-control' , 'style': 'width:550px;','placeholder':"Prix.....!"}}) }}
-                                        {{ form_errors(form.prix) }}
-                                    </div>
-                                    <label>Image :</label>
-
-
-                                    {{ form_widget(form.image, {'attr': { 'type':"file" ,'class' : 'help-block' , 'style': 'vertical-align: inherit;','placeholder':"Imagee.....!"}}) }}
+                                    {{ form_widget(form.image, {'attr': { 'type':"file" ,'class' : 'help-block' , 'style': 'vertical-align: inherit;'}}) }}
 
                                     <label>Date :</label>
 
@@ -55,7 +44,7 @@
                                 </div>
 
 
-                                <button type="submit" class="btn btn-primary"  id ="ajouter">Ajouter  Meuble </button>
+                                <button type="submit" class="btn btn-primary">Modifier  Meuble </button>
                             </form>
                         </div>
                     </div>
@@ -71,9 +60,4 @@
         </div><!--/.col-->
     </div><!--/.row-->
     </div>	<!--/.main-->
-
-
-
-
-
 {% endblock %}

@@ -1,0 +1,55 @@
+
+
+<center><div class="col-lg-6 col-md-8">
+        <h1 aligne ="center" ><small> les Meubles </small> </h1></div>
+
+    <div class="ripple-container"></div>
+    <div class="tab-content tab-space">
+        <div class="tab-pane" id="pill1" style="margin-bottom: 25px; width: 1000px; height: 700px;  margin-left: 30px;">
+            <center>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <center><div class="td-name">
+
+                </div>
+                <table class="table"  class="table-responsive" id="tableac" width="500" >
+                    <thead >
+                    <tr class="text-center"  bgcolor="#add8e6"  >
+                        <th class="title" >libelle</th>
+                        <th class="title">quantité</th>
+                        <th class="title" class="text-center" class="text-right">prix par un article</th>
+                        <th class="title" class="text-center" class="text-right"colspan="2">image</th>
+                        <th class="title" class="text-center" class="text-right"colspan="10">date</th>
+                        <th class="title" class="text-center" class="text-right"colspan="4">type</th>
+                        </th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody  >
+                    {% for don in Dons %}
+                        <tr class="text-center" bgcolor="#fff0f5">
+                            <td >{{ don.libelle  | upper}}</td>
+                            <td>{{ don.quantite}}</td>
+                            <td>{{ don.prix}}</td>
+                            <td colspan="2"><img src ="{{ pathToWeb ~  asset('uploads/images/'~don.image ) }}" height="100px" width="250px"> </td>
+                            <td colspan="10">{{ don.date|date("m-d-y")}}</td>
+                            <td colspan="4">{{ don.stock.type}}</td>
+
+
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </center>
+            </center>
+        </div>
+    </div>
+</center>
+
