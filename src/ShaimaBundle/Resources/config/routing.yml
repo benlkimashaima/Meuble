@@ -1,6 +1,3 @@
-AfficherStockh:
-  path:     /
-  defaults: { _controller: ShaimaBundle:Default:afficheStock }
 shaima:
     path:     /page
     defaults: { _controller: ShaimaBundle:Default:page }
@@ -57,3 +54,18 @@ afficheLivraison:
 afficheMLivraison:
   path:     /afficheMLivraison
   defaults: { _controller: ShaimaBundle:Default:afficheMLivraison }
+CommandeAdd:
+  path:     /addCommande
+  defaults: { _controller: ShaimaBundle:Default:addCommande}
+deleteMl:
+  path:     /deleteML/{id}
+  defaults: { _controller: ShaimaBundle:Default:deleteML }
+modifierML:
+  path:     /modifierML/{id}
+  defaults: { _controller: ShaimaBundle:Default:modifierML }
+Notif:
+  path:     /
+  defaults: { _controller: ShaimaBundle:Default:afficheNotif }
+map:
+  path:     /map
+  defaults: { _controller: ShaimaBundle:Default:Map }

@@ -114,6 +114,7 @@
       <command value="s doctrine:generate:form ShaimaBundle:Achat" />
       <command value="s doctrine:generate:entity" />
       <command value="s doctrine:schema:update --force" />
+      <command value="s doctrine:generate:form ShaimaBundle:livraison" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -141,11 +142,35 @@
       <workItem from="1594928150673" duration="5953000" />
       <workItem from="1594972032000" duration="20939000" />
       <workItem from="1595231264356" duration="28534000" />
-      <workItem from="1595319614652" duration="29201000" />
+      <workItem from="1595319614652" duration="35899000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
+          <line>225</line>
+          <properties>
+            <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
+            <option name="methodName" value="AchatAction" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
+          <line>88</line>
+          <properties>
+            <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
+            <option name="methodName" value="modifierStockAction" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

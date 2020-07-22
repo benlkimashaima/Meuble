@@ -57,9 +57,9 @@
                                                 <tr class="no-records-found">
                                                     <td colspan="4">{{ Dons.type }}</td>
                                                     <td>
-                                                        <a  href="" >
+                                                        <a  href="{{path('modifierML',{'id':Dons.id})}}">
                                                             Modifier
-                                                            <a  href=""  >
+                                                            <a  href="{{path('deleteMl',{'id':Dons.id})}}" >
                                                                 Supprimer
                                                                 <div>      </div></a>
                                                     </td>
@@ -70,7 +70,7 @@
                                             </tbody>
                                         </table>
                                         <div >
-                                            <a href="">     <button    class="btn btn-primary"> Ajouter Type  </button> </a>
+                                            <a href="{{ path('CommandeAdd') }}"     <button    class="btn btn-primary"> Ajouter Type  </button> </a>
 
 
 

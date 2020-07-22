@@ -2,9 +2,11 @@
 
 namespace ShaimaBundle\Controller;
 
+use ShaimaBundle\Entity\livraison;
 use ShaimaBundle\Entity\Meuble;
 use ShaimaBundle\Entity\stock;
 use ShaimaBundle\Form\AchatType;
+use ShaimaBundle\Form\livraisonType;
 use ShaimaBundle\Form\MeubleType;
 use ShaimaBundle\Form\quantiteType;
 use ShaimaBundle\Form\RechercheType;
@@ -241,6 +243,10 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($achat);
             $em->flush();
+            $this->addFlash('infLivraison',
+                ' New livraison '
+
+            );
             return $this->redirectToRoute('AfficherMeubleF');
         }
         return $this->render('ShaimaBundle:templateF:achat.html.twig', array("form"=>$form->createView()));
@@ -258,5 +264,58 @@ class DefaultController extends Controller
         $Dons= $em->getRepository("ShaimaBundle:livraison")->findAll();
         return $this->render('ShaimaBundle:template:read_Mlivraison.html.twig',array('Dons'=>$Dons));
     }
+    public function addCommandeAction(Request $request){
+        $Stock = new \ShaimaBundle\Entity\livraison();
+        $form = $this->createForm(\ShaimaBundle\Form\livraisonType::class,$Stock);
+        $form->handleRequest($request);
+        if($form->isSubmitted()&& $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Stock);
+            $em->flush();
 
+            $this->addFlash('info',
+                ' Stock Added successufly!'
+
+            );
+            return $this->redirectToRoute('afficheMLivraison');
+        }
+        return $this->render('ShaimaBundle:template:add_Mlivraison.html.twig', array("form"=>$form->createView()));
+    }
+    public function deleteMlAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $stocks=$em->getRepository(livraison::class)->find($id);
+        $em->remove($stocks);
+        $em->flush();
+        $this->addFlash('infos',
+            ' Stock deleted successufly!'
+
+        );
+        return $this->redirectToRoute('afficheMLivraison');
+    }
+    public function  modifierMLAction(Request $request,$id){
+        $stock =new \ShaimaBundle\Entity\livraison();
+        $em=$this->getDoctrine()->getManager();
+        $stock=$em->getRepository("ShaimaBundle:livraison")->find($id);
+
+        $Form=$this->createForm(livraisonType::class,$stock) ;
+        $Form->handleRequest($request);
+        if($Form->isSubmitted() && $Form->isValid()){
+
+            $em->flush();
+
+            return $this->redirectToRoute('afficheMLivraison');
+
+        }
+        return $this->render('ShaimaBundle:template:modifier_ML.html.twig',array('form'=>$Form->createView()));
+    }
+    public function afficheNotifAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        return $this->render('ShaimaBundle:template:Notif.html.twig');
+    }
+    public function MapAction()
+    {
+        return $this->render('ShaimaBundle:templateF:map.html.twig');
+    }
 }
