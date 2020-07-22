@@ -7,6 +7,9 @@ shaima:
 layout:
     path:     /layout
     defaults: { _controller: ShaimaBundle:Default:layout }
+layoutF:
+  path:     /layoutF
+  defaults: { _controller: ShaimaBundle:Default:layoutF }
 wight:
   path:     /wight
   defaults: { _controller: ShaimaBundle:Default:wigh }
@@ -40,3 +43,17 @@ refugee_afficherDetasille:
 refugee_afficherDetaille:
   path:     /afficherD/{id}
   defaults: { _controller: ShaimaBundle:Default:afficherDetaille }
+AfficherMeubleF:
+  path:     /AfficherMeubleF
+  defaults: { _controller: ShaimaBundle:Default:afficheMeubleF }
+AchatAdd:
+  path:     /addachat/{id}
+  defaults: { _controller: ShaimaBundle:Default:addAchat}
+
+afficheLivraison:
+  path:     /afficheLivraison
+  defaults: { _controller: ShaimaBundle:Default:afficheLivraison }
+
+afficheMLivraison:
+  path:     /afficheMLivraison
+  defaults: { _controller: ShaimaBundle:Default:afficheMLivraison }

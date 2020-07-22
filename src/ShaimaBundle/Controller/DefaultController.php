@@ -4,7 +4,9 @@ namespace ShaimaBundle\Controller;
 
 use ShaimaBundle\Entity\Meuble;
 use ShaimaBundle\Entity\stock;
+use ShaimaBundle\Form\AchatType;
 use ShaimaBundle\Form\MeubleType;
+use ShaimaBundle\Form\quantiteType;
 use ShaimaBundle\Form\RechercheType;
 use ShaimaBundle\Form\stockType;
 use ShaimaBundle\Repository\stockRepository;
@@ -22,6 +24,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
+
     public function indexAction()
     {
         return $this->render('ShaimaBundle:Default:read_type_Meuble.html.twig');
@@ -33,6 +36,10 @@ class DefaultController extends Controller
     public function layoutAction()
     {
         return $this->render('ShaimaBundle::layout.html.twig');
+    }
+    public function layoutFAction()
+    {
+        return $this->render('ShaimaBundle::layoutF.html.twig');
     }
     public function indexxAction()
     {
@@ -145,31 +152,7 @@ class DefaultController extends Controller
             return $this->redirectToRoute('AfficherMeuble');
         }
         return $this->render('ShaimaBundle:template:add_meuble.html.twig', array("form"=>$form->createView()));}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public function deleteMeubleAction($id)
+    public function deleteMeubleAction($id)
     {
         $em=$this->getDoctrine()->getManager();
         $Dons=$em->getRepository(Meuble::class)->find($id);
@@ -231,4 +214,49 @@ class DefaultController extends Controller
 
 
     }
+    ##front###
+    public function afficheMeubleFAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $Dons= $em->getRepository("ShaimaBundle:Meuble")->findAll();
+        return $this->render('ShaimaBundle:templateF:read_meuble.html.twig',array('Dons'=>$Dons));
+    }
+    public function AchatAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $Dons= $em->getRepository("ShaimaBundle:Meuble")->findAll();
+        return $this->render('ShaimaBundle:templateF:achat.html.twig',array('Dons'=>$Dons));
+    }
+    public function addAchatAction(Request $request,$id){
+        $achat = new \ShaimaBundle\Entity\Achat();
+        $em = $this->getDoctrine()->getManager();
+        $Meuble= $em->getRepository("ShaimaBundle:Meuble")->find($id);
+        $achat->setLibelle($Meuble->getLibelle());
+
+        $form = $this->createForm(\ShaimaBundle\Form\AchatType::class,$achat);
+        $form->handleRequest($request);
+        if($form->isSubmitted()&& $form->isValid()){
+            $em->getRepository("ShaimaBundle:Meuble")->updateCapacityMinus($id);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($achat);
+            $em->flush();
+            return $this->redirectToRoute('AfficherMeubleF');
+        }
+        return $this->render('ShaimaBundle:templateF:achat.html.twig', array("form"=>$form->createView()));
+    }
+
+    public function afficheLivraisonAction()
+{
+    $em = $this->getDoctrine()->getManager();
+    $Dons= $em->getRepository("ShaimaBundle:Achat")->findAll();
+    return $this->render('ShaimaBundle:template:read_livraison.html.twig',array('Dons'=>$Dons));
+}
+    public function afficheMLivraisonAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $Dons= $em->getRepository("ShaimaBundle:livraison")->findAll();
+        return $this->render('ShaimaBundle:template:read_Mlivraison.html.twig',array('Dons'=>$Dons));
+    }
+
 }

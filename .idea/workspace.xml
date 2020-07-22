@@ -80,7 +80,7 @@
   <component name="ProjectId" id="1emYHj81aSADFs17Cwl9F8n0MDE" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PI2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ShaimaBundle/Form" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -91,9 +91,12 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Resources\views\Default" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Resources\views\template" />
       <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Form" />
+      <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Resources\views\template" />
       <recent name="C:\wamp64\www\shaima\web\tempt" />
     </key>
   </component>
@@ -103,12 +106,13 @@
       <command value="s generate:bundle" />
       <command value="s doctrine:generate:entities" />
       <command value="s doctrine:database:create" />
-      <command value="s doctrine:generate:entity" />
       <command value="s doctrine:schema:create" />
       <command value="s doctrine:generate:form" />
       <command value="s doctrine:generate:form ShaimaBundle:stock" />
       <command value="s doctrine:generate:form ShaimaBundle:Meuble" />
       <command value="s doctrine:schema:update" />
+      <command value="s doctrine:generate:form ShaimaBundle:Achat" />
+      <command value="s doctrine:generate:entity" />
       <command value="s doctrine:schema:update --force" />
     </option>
   </component>
@@ -137,7 +141,7 @@
       <workItem from="1594928150673" duration="5953000" />
       <workItem from="1594972032000" duration="20939000" />
       <workItem from="1595231264356" duration="28534000" />
-      <workItem from="1595319614652" duration="1432000" />
+      <workItem from="1595319614652" duration="29201000" />
     </task>
     <servers />
   </component>

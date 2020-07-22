@@ -1,0 +1,120 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                <li class="active">Icons</li>
+            </ol>
+        </div><!--/.row-->
+
+
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Mode de livraison</div>
+                    <div class="panel-body">
+                        <div class="bootstrap-table">
+                            <script src="{{ asset('tempt/js/jquery-1.11.1.min.js') }}"></script>
+
+                            <div class="pull-center search">
+                                <input id ="search"class="form-control" type="search" placeholder="                                                                                                                          Chercher                 "></th>
+
+                                </form>
+
+                                <br>
+                                <div class="fixed-table-container">
+                                    <div class="fixed-table-header">
+                                        {% for message in app.flashes('infos') %}
+                                            <div class="alert bg-danger" role="alert">
+                                                <svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"></use></svg>
+                                                {{message}} <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                                            </div>                                    {% endfor %}
+
+                                        {% for message in app.flashes('info') %}
+                                            <div class="alert bg-success" role="alert">
+                                                <svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"></use></svg>
+                                                {{message}} <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                                            </div>                                      {% endfor %}
+                                    </div>
+                                    <div class="fixed-table-body">
+
+                                        <table id="type"  sort-name="name" data-sort-order="desc" class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <td colspan="4">Type  </td>
+                                                <td colspan="4">Action</td>
+
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for Dons in Dons %}
+
+                                                <tr class="no-records-found">
+                                                    <td colspan="4">{{ Dons.type }}</td>
+                                                    <td>
+                                                        <a  href="" >
+                                                            Modifier
+                                                            <a  href=""  >
+                                                                Supprimer
+                                                                <div>      </div></a>
+                                                    </td>
+
+                                                </tr>
+
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                        <div >
+                                            <a href="">     <button    class="btn btn-primary"> Ajouter Type  </button> </a>
+
+
+
+                                        </div>
+                                    </div>
+
+                                </div></div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div><!--/.col-->
+    </div><!--/.row-->
+    </div>	<!--/.main-->
+    <script>
+        $(document).ready(function(){
+            $('#search').keyup(function(){
+                search_table($(this).val());
+            });
+            function search_table(value){
+                $('#type tbody tr').each(function(){
+                    var found = 'false';
+                    $(this).each(function(){
+                        if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                        {
+                            found = 'true';
+                        }
+                    });
+                    if(found == 'true')
+                    {
+                        $(this).show();
+
+                    }
+                    else
+                    {
+                        $(this).hide();
+
+                    }
+                });
+            }
+        });
+    </script>
+{% endblock %}

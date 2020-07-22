@@ -1,0 +1,119 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                <li class="active">Icons</li>
+            </ol>
+        </div><!--/.row-->
+
+
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Les Livraisons
+                    <a  href="{{path('afficheMLivraison')}}" class="btn btn-blue btn-round"  >
+                        Mode de livraison
+                       </a></div>
+                    <div class="panel-body">
+                        <div class="bootstrap-table">
+                            <script src="{{ asset('tempt/js/jquery-1.11.1.min.js') }}"></script>
+
+                            <div class="pull-center search">
+                                <input id ="search"class="form-control" type="search" placeholder="                                                                                                                          Chercher                 "></th>
+
+                                <form>
+                                    <br>
+                                    <div class="fixed-table-container">
+
+                                        <div class="fixed-table-body">
+
+                                            <table id="type" sort-name="name" data-sort-order="desc" class="table table-hover">
+                                                <thead>
+                                                <tr class="no-records-found">
+                                                    <td colspan="4">Nom</td>
+                                                    <td colspan="4">Prenom</td>
+                                                    <td colspan="4">E-mail</td>
+                                                    <td colspan="4">Ville</td>
+                                                    <td colspan="4">Libelle</td>
+                                                    <td colspan="4">type</td>
+
+
+
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for don in Dons %}
+
+                                                    <tr class="no-records-found">
+                                                        <td colspan="4">{{ don.nom }}</td>
+                                                        <td colspan="4">{{ don.prenom}}</td>
+                                                        <td colspan="4">{{ don.mail }}</td>
+                                                        <td colspan="4">{{ don.ville }}</td>
+                                                        <td colspan="4">{{ don.libelle | upper}}</td>
+                                                        <td colspan="4">{{ don.livraison.type}}</td>
+
+
+
+
+
+                                                    </tr>
+
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                            <div >
+
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div><!--/.col-->
+    </div><!--/.row-->
+    </div>	<!--/.main-->
+    <script>
+        $(document).ready(function(){
+            $('#search').keyup(function(){
+                search_table($(this).val());
+            });
+            function search_table(value){
+                $('#type tbody tr').each(function(){
+                    var found = 'false';
+                    $(this).each(function(){
+                        if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                        {
+                            found = 'true';
+                        }
+                    });
+                    if(found == 'true')
+                    {
+                        $(this).show();
+
+                    }
+                    else
+                    {
+                        $(this).hide();
+
+                    }
+                });
+            }
+        });
+    </script>
+
+{% endblock %}

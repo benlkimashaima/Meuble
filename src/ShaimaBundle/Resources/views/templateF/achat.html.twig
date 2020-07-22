@@ -1,0 +1,96 @@
+{% extends '::baseF.html.twig' %}
+{% block body %}
+
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+
+                    <div class="cta-inner text-center rounded">
+
+
+                        <div class="row">
+                            {{ form_start(form) }}
+
+
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <h2 class="section-heading mb-5">
+                                        <span class="section-heading-upper">  Meubles </span>
+                                        <span class="section-heading-lower">Achats en Ligne </span>
+
+                                    </h2>
+                                    <div class="panel-body">
+                                        <div class="bootstrap-table">
+
+
+                                                    <br>
+                                                    <div class="fixed-table-container">
+
+                                                        <div class="fixed-table-body">
+
+
+                                                            <label>Nom :
+                                                            {{ form_widget(form.nom, {'attr': { 'class' : 'form-control' , 'style': 'width:450px;','placeholder':"Nom.....!"}}) }}</label>
+                                                            <label >Prenom :
+                                                                {{ form_widget(form.prenom, {'attr': { 'class' : 'form-control' , 'style': 'width:450px;','placeholder':"Prenom.....!"}}) }}</label>
+                                                            <label >E-mail :
+                                                                {{ form_widget(form.mail, {'attr': { 'class' : 'form-control' , 'style': 'width:450px;','placeholder':"exemple@gmail.com  "}}) }}</label>
+                                                            <label>Ville :
+                                                                {{ form_widget(form.ville, {'attr': { 'class' : 'form-control' , 'style': 'width:450px;','placeholder':"Ville.....!"}}) }}</label>
+                                                            <label>Livraison :
+                                                                {{ form_widget(form.livraison, {'attr': { 'class' : 'form-control' , 'style': 'width:450px;'}}) }}</label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary"  id ="ajouter">Appliquer</button>
+
+                                                    </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{ form_end(form) }}
+
+
+                        </div>
+
+
+
+                        </div><!--/.col-->
+                    </div><!--/.row-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
