@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new ShaimaBundle\ShaimaBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
 
         ];
 

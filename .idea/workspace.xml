@@ -75,12 +75,14 @@
       <path value="$PROJECT_DIR$/vendor/jakoch/phantomjs-installer" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
     </include_path>
   </component>
   <component name="ProjectId" id="1emYHj81aSADFs17Cwl9F8n0MDE" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ShaimaBundle/Form" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PI5" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -142,7 +144,7 @@
       <workItem from="1594928150673" duration="5953000" />
       <workItem from="1594972032000" duration="20939000" />
       <workItem from="1595231264356" duration="28534000" />
-      <workItem from="1595319614652" duration="35899000" />
+      <workItem from="1595319614652" duration="41815000" />
     </task>
     <servers />
   </component>
@@ -154,7 +156,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>225</line>
+          <line>247</line>
           <properties>
             <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
             <option name="methodName" value="AchatAction" />
@@ -169,6 +171,24 @@
             <option name="methodName" value="modifierStockAction" />
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
+          <line>139</line>
+          <properties>
+            <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
+            <option name="methodName" value="AjouterMeubleAction" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
+          <line>167</line>
+          <properties>
+            <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
+            <option name="methodName" value="deleteMeubleAction" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

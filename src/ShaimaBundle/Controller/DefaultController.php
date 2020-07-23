@@ -120,11 +120,22 @@ class DefaultController extends Controller
         return $this->render('ShaimaBundle:template:read_type_Meuble.html.twig',
             array('form' => $form->createView(), 'Dons' => $Dons));
     }
-    public function afficheMeubleAction()
+    public function afficheMeubleAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $Dons= $em->getRepository("ShaimaBundle:Meuble")->findAll();
-        return $this->render('ShaimaBundle:template:read_meuble.html.twig',array('Dons'=>$Dons));
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         *
+         */
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $Dons,
+            $request->query->getInt('page', 1),
+
+            $request->query->getInt('limit', 4)/*nbre d'éléments par page*/
+        );
+        return $this->render('ShaimaBundle:template:read_meuble.html.twig',array('Dons'=>$pagination));
     }
     public function AjouterMeubleAction(Request $request)
     { $Stock = new \ShaimaBundle\Entity\Meuble();
@@ -147,8 +158,8 @@ class DefaultController extends Controller
             $entityManager->persist($Stock);
             $entityManager->flush();
 
-            $this->addFlash('info',
-                ' Stock Added successufly!'
+            $this->addFlash('meuble',
+                ' Meuble Added successufly!'
 
             );
             return $this->redirectToRoute('AfficherMeuble');
@@ -160,7 +171,7 @@ class DefaultController extends Controller
         $Dons=$em->getRepository(Meuble::class)->find($id);
         $em->remove($Dons);
         $em->flush();
-        $this->addFlash('infos',
+        $this->addFlash('meubles',
             ' Meuble Deleted successufly!'
 
         );
@@ -184,7 +195,7 @@ class DefaultController extends Controller
                 $this->getParameter('images_directory'), $fileName);
 
 
-            $Don->setImage($fileName);
+            $Don->getImage($fileName);
 
             $entityManager=$this->getDoctrine()->getManager();
             $entityManager->persist($Don);
@@ -217,11 +228,22 @@ class DefaultController extends Controller
 
     }
     ##front###
-    public function afficheMeubleFAction()
+    public function afficheMeubleFAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $Dons= $em->getRepository("ShaimaBundle:Meuble")->findAll();
-        return $this->render('ShaimaBundle:templateF:read_meuble.html.twig',array('Dons'=>$Dons));
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         *
+         */
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $Dons,
+            $request->query->getInt('page', 1),
+
+            $request->query->getInt('limit', 4)/*nbre d'éléments par page*/
+        );
+        return $this->render('ShaimaBundle:templateF:read_meuble.html.twig',array('Dons'=>$pagination));
     }
     public function AchatAction()
     {
@@ -252,11 +274,22 @@ class DefaultController extends Controller
         return $this->render('ShaimaBundle:templateF:achat.html.twig', array("form"=>$form->createView()));
     }
 
-    public function afficheLivraisonAction()
+    public function afficheLivraisonAction(Request $request)
 {
     $em = $this->getDoctrine()->getManager();
     $Dons= $em->getRepository("ShaimaBundle:Achat")->findAll();
-    return $this->render('ShaimaBundle:template:read_livraison.html.twig',array('Dons'=>$Dons));
+    /**
+     * @var $paginator \Knp\Component\Pager\Paginator
+     *
+     */
+    $paginator = $this->get('knp_paginator');
+    $pagination = $paginator->paginate(
+        $Dons,
+        $request->query->getInt('page', 1),
+
+        $request->query->getInt('limit', 4)/*nbre d'éléments par page*/
+    );
+    return $this->render('ShaimaBundle:template:read_livraison.html.twig',array('Dons'=>$pagination));
 }
     public function afficheMLivraisonAction()
     {
@@ -273,8 +306,8 @@ class DefaultController extends Controller
             $em->persist($Stock);
             $em->flush();
 
-            $this->addFlash('info',
-                ' Stock Added successufly!'
+            $this->addFlash('commande',
+                ' MODE  Commande  Added successufly!'
 
             );
             return $this->redirectToRoute('afficheMLivraison');
@@ -287,8 +320,8 @@ class DefaultController extends Controller
         $stocks=$em->getRepository(livraison::class)->find($id);
         $em->remove($stocks);
         $em->flush();
-        $this->addFlash('infos',
-            ' Stock deleted successufly!'
+        $this->addFlash('commandes',
+            '  MODE  Commande deleted successufly!'
 
         );
         return $this->redirectToRoute('afficheMLivraison');
@@ -314,7 +347,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         return $this->render('ShaimaBundle:template:Notif.html.twig');
     }
-    public function MapAction()
+    public function MapMapAction()
     {
         return $this->render('ShaimaBundle:templateF:map.html.twig');
     }

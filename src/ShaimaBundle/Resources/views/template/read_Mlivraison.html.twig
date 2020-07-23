@@ -28,13 +28,13 @@
                                 <br>
                                 <div class="fixed-table-container">
                                     <div class="fixed-table-header">
-                                        {% for message in app.flashes('infos') %}
+                                        {% for message in app.flashes('commande') %}
                                             <div class="alert bg-danger" role="alert">
                                                 <svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"></use></svg>
                                                 {{message}} <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
                                             </div>                                    {% endfor %}
 
-                                        {% for message in app.flashes('info') %}
+                                        {% for message in app.flashes('commandes') %}
                                             <div class="alert bg-success" role="alert">
                                                 <svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"></use></svg>
                                                 {{message}} <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
