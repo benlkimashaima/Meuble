@@ -21,7 +21,7 @@
                                         <script src="{{ asset('tempt/js/jquery-1.11.1.min.js') }}"></script>
                             <div class="fixed-table-header">
                                 {% for message in app.flashes('meuble') %}
-                                    <div class="alert bg-danger" role="alert">
+                                    <div class="alert bg-success" role="alert">
                                         <svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"></use></svg>
                                         {{message}} <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
                                     </div>                                    {% endfor %}

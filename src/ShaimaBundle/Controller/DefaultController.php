@@ -184,18 +184,13 @@ class DefaultController extends Controller
 
         $Form=$this->createForm(MeubleType::class,$Don) ;
         $Form->handleRequest($request);
+
+
+
         if($Form->isSubmitted() && $Form->isValid()){
-            /**
-             * @var UploadedFile $file
-             *
-             */
-            $file=$Don->getImage();
-            $fileName =md5(uniqid()).'.'.$file->guessExtension();
-            $file->move(
-                $this->getParameter('images_directory'), $fileName);
 
+            /**$achat->setLibelle($Meuble->getLibelle());**/
 
-            $Don->getImage($fileName);
 
             $entityManager=$this->getDoctrine()->getManager();
             $entityManager->persist($Don);
@@ -347,7 +342,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         return $this->render('ShaimaBundle:template:Notif.html.twig');
     }
-    public function MapMapAction()
+    public function MapAction()
     {
         return $this->render('ShaimaBundle:templateF:map.html.twig');
     }

@@ -77,12 +77,13 @@
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1emYHj81aSADFs17Cwl9F8n0MDE" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PI5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/UserBundle" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -97,6 +98,7 @@
       <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Resources\views\Default" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\shaima\src\UserBundle" />
       <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Form" />
       <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Resources\views\template" />
       <recent name="C:\wamp64\www\shaima\web\tempt" />
@@ -115,8 +117,14 @@
       <command value="s doctrine:schema:update" />
       <command value="s doctrine:generate:form ShaimaBundle:Achat" />
       <command value="s doctrine:generate:entity" />
-      <command value="s doctrine:schema:update --force" />
       <command value="s doctrine:generate:form ShaimaBundle:livraison" />
+      <command value="s doctrine:schema:update --force" />
+      <command value="fos:user:create : Create a user." />
+      <command value="console fos:user:create" />
+      <command value="s fos:user:create matthieu" />
+      <command value="s fos:user:create shaima" />
+      <command value="s fos:user:create shaimaa" />
+      <command value="s fos:user:promote shaimaa ROLE_ADMIN" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -144,7 +152,7 @@
       <workItem from="1594928150673" duration="5953000" />
       <workItem from="1594972032000" duration="20939000" />
       <workItem from="1595231264356" duration="28534000" />
-      <workItem from="1595319614652" duration="41815000" />
+      <workItem from="1595319614652" duration="52646000" />
     </task>
     <servers />
   </component>
@@ -156,7 +164,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>247</line>
+          <line>242</line>
           <properties>
             <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
             <option name="methodName" value="AchatAction" />
@@ -189,6 +197,15 @@
             <option name="methodName" value="deleteMeubleAction" />
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
+          <line>311</line>
+          <properties>
+            <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
+            <option name="methodName" value="deleteMlAction" />
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

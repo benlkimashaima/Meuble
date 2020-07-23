@@ -7,7 +7,7 @@
     <section class="page-section cta">
     <div class="container">
     <div class="row">
-    <div class="col-xl-9 mx-auto">
+    <div >
 
         <div class="cta-inner text-center rounded">
 
@@ -33,7 +33,7 @@
 
                                         <div class="fixed-table-body">
 
-                                            <table id="type" sort-name="name" data-sort-order="desc" class="table table-hover">
+                                            <table id="type"  class="table table-hover">
                                                 <thead>
                                                 <tr class="no-records-found">
                                                     <td colspan="4">libelle</td>
@@ -57,7 +57,7 @@
                                                         <td colspan="4"> {% if don.quantite > 3 %}
 
                                                                 <h4 class=" alert alert-success"> {{"ON STOCKS" }}</h4>
-                                                        <td  >
+                                                        <td>
                                                             <a  href="{{path('AchatAdd',{'id':don.id})}}"  >
                                                                 Achat en ligne
                                                                 <div >    </div></a>
@@ -68,11 +68,6 @@
                                                                 <h4 class=" alert alert-danger">{{ "OFF STOCKS" }}</h4>
 
                                                             {% endif %} </td>
-
-
-
-
-
 
                                                     </tr>
 
