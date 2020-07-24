@@ -52,6 +52,31 @@
                 <li class="nav-item px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="{{path('map')}}">Localisation</a>
                 </li>
+                <li class="nav-item px-lg-4">
+                    <a  class="nav-link text-uppercase text-expanded" href="{{ path('fos_user_security_login') }}" >
+                     Login
+                        </a>
+                </li>
+                {% if is_granted('ROLE_USER') %}
+                <li class="nav-item">
+                    <a href="{{ path('AfficherMeubleF') }}" class="nav-link">
+                        <i class="material-icons"></i> Profile
+                    </a>
+                </li>
+                <li class="button-container nav-item iframe-extern">
+                    <a href="{{ path('fos_user_security_logout') }}" target="_blank" class="btn  btn-primary   btn-round btn-block">
+                        <i class="material-icons">person</i> Logout
+                        <div class="ripple-container"></div></a>
+                </li>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('Notif') }}" class="nav-link">
+                            <i class="material-icons"></i> Espace_Admin
+                        </a>
+                    </li>
+                {% endif%}
             </ul>
         </div>
     </div>

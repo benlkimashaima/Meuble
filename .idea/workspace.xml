@@ -125,6 +125,14 @@
       <command value="s fos:user:create shaima" />
       <command value="s fos:user:create shaimaa" />
       <command value="s fos:user:promote shaimaa ROLE_ADMIN" />
+      <command value="s fos:user:promote shaimaaa ROLE_USER" />
+      <command value="$ php bin/console fos:user:promote hay ROLE_ADMIN " />
+      <command value="$ php bin/console fos:user:promote dd ROLE_USER" />
+      <command value="php bin/console fos:user:promote dd ROLE_USER" />
+      <command value="s fos:user:promote dd ROLE_USER" />
+      <command value="php bin/console fos:user:promote shaimaaa ROLE_ADMIN" />
+      <command value="s fos:user:create yecin" />
+      <command value="php bin/console fos:user:promote yecin ROLE_USER" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -152,7 +160,7 @@
       <workItem from="1594928150673" duration="5953000" />
       <workItem from="1594972032000" duration="20939000" />
       <workItem from="1595231264356" duration="28534000" />
-      <workItem from="1595319614652" duration="52646000" />
+      <workItem from="1595319614652" duration="66246000" />
     </task>
     <servers />
   </component>
