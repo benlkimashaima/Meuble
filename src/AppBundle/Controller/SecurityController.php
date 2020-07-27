@@ -25,13 +25,13 @@ class SecurityController extends Controller
         $authChecker=$this->container->get('security.authorization_checker');
         if($authChecker->isGranted('ROLE_ADMIN'))
     {
-        return $this->render('@App/Security/admin_home.html.twig');
+        return $this->render('ShaimaBundle:templateF:home.html.twig');
     }
         if($authChecker->isGranted('ROLE_USER'))
         {
-            return $this->render('@App/Security/user_home.html.twig');
+            return $this->render('ShaimaBundle:templateF:home.html.twig');
         }
-        return $this->render('@FOSUser/Security/login.html.twig');
+        return $this->render('ShaimaBundle:templateF:home.html.twig');
     }
 
 }

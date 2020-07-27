@@ -58,9 +58,16 @@
 
                                                                 <h4 class=" alert alert-success"> {{"ON STOCKS" }}</h4>
                                                         <td>
+                                                            {% if is_granted('ROLE_USER')   %}
+
                                                             <a  href="{{path('AchatAdd',{'id':don.id})}}"  >
                                                                 Achat en ligne
                                                                 <div >    </div></a>
+                                                            {% else %}
+                                                                <a  href="{{path('fos_user_security_login')}}"  >
+                                                                    Achat en ligne
+                                                                    <div >    </div></a>
+                                                            {% endif %}
 
 
                                                         </td>

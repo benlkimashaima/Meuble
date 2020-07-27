@@ -31,6 +31,10 @@ class DefaultController extends Controller
     {
         return $this->render('ShaimaBundle:Default:read_type_Meuble.html.twig');
     }
+    public function registerAction()
+    {
+        return $this->render('@FOSUser/Registration/register_content.html.twig');
+    }
     public function pageAction()
     {
         return $this->render('ShaimaBundle:Default:page.html.twig');
@@ -345,5 +349,9 @@ class DefaultController extends Controller
     public function MapAction()
     {
         return $this->render('ShaimaBundle:templateF:map.html.twig');
+    }
+    public function homeAction()
+    {
+        return $this->render('ShaimaBundle:templateF:home.html.twig');
     }
 }

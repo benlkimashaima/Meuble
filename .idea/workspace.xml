@@ -83,7 +83,7 @@
   <component name="ProjectId" id="1emYHj81aSADFs17Cwl9F8n0MDE" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/UserBundle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PI5" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -122,7 +122,6 @@
       <command value="fos:user:create : Create a user." />
       <command value="console fos:user:create" />
       <command value="s fos:user:create matthieu" />
-      <command value="s fos:user:create shaima" />
       <command value="s fos:user:create shaimaa" />
       <command value="s fos:user:promote shaimaa ROLE_ADMIN" />
       <command value="s fos:user:promote shaimaaa ROLE_USER" />
@@ -133,6 +132,10 @@
       <command value="php bin/console fos:user:promote shaimaaa ROLE_ADMIN" />
       <command value="s fos:user:create yecin" />
       <command value="php bin/console fos:user:promote yecin ROLE_USER" />
+      <command value="s fos:user:create shaima" />
+      <command value="php bin/console fos:user:promote shaima ROLE_ADMIN" />
+      <command value="s fos:user:create souleima" />
+      <command value="s fos:user:create islem " />
     </option>
   </component>
   <component name="RunDashboard">
@@ -160,7 +163,8 @@
       <workItem from="1594928150673" duration="5953000" />
       <workItem from="1594972032000" duration="20939000" />
       <workItem from="1595231264356" duration="28534000" />
-      <workItem from="1595319614652" duration="66246000" />
+      <workItem from="1595319614652" duration="66890000" />
+      <workItem from="1595837757780" duration="13448000" />
     </task>
     <servers />
   </component>
@@ -172,7 +176,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>242</line>
+          <line>246</line>
           <properties>
             <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
             <option name="methodName" value="AchatAction" />
@@ -181,7 +185,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>88</line>
+          <line>92</line>
           <properties>
             <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
             <option name="methodName" value="modifierStockAction" />
@@ -190,7 +194,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>139</line>
+          <line>143</line>
           <properties>
             <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
             <option name="methodName" value="AjouterMeubleAction" />
@@ -199,7 +203,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>167</line>
+          <line>171</line>
           <properties>
             <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
             <option name="methodName" value="deleteMeubleAction" />
@@ -208,7 +212,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>311</line>
+          <line>315</line>
           <properties>
             <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
             <option name="methodName" value="deleteMlAction" />

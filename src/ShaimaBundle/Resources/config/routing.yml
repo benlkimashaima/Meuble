@@ -64,8 +64,14 @@ modifierML:
   path:     /modifierML/{id}
   defaults: { _controller: ShaimaBundle:Default:modifierML }
 Notif:
-  path:     /
+  path:     /Notif
   defaults: { _controller: ShaimaBundle:Default:afficheNotif }
 map:
   path:     /map
   defaults: { _controller: ShaimaBundle:Default:Map }
+home:
+  path:     /
+  defaults: { _controller: ShaimaBundle:Default:home }
+register:
+  path:     /register
+  defaults: { _controller: ShaimaBundle:Default:register }
