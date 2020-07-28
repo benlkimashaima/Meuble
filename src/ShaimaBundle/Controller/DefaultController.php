@@ -26,35 +26,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
+    ###BACK
+    ##table stock ##
 
-    public function indexAction()
-    {
-        return $this->render('ShaimaBundle:Default:read_type_Meuble.html.twig');
-    }
-    public function registerAction()
-    {
-        return $this->render('@FOSUser/Registration/register_content.html.twig');
-    }
-    public function pageAction()
-    {
-        return $this->render('ShaimaBundle:Default:page.html.twig');
-    }
-    public function layoutAction()
-    {
-        return $this->render('ShaimaBundle::layout.html.twig');
-    }
-    public function layoutFAction()
-    {
-        return $this->render('ShaimaBundle::layoutF.html.twig');
-    }
-    public function indexxAction()
-    {
-        return $this->render('ShaimaBundle:template:read_type_Meuble.html.twig');
-    }
-    public function wighAction()
-    {
-        return $this->render('ShaimaBundle:template:read_meuble.html.twig');
-    }
     public function afficheStockAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -106,60 +80,46 @@ class DefaultController extends Controller
         }
         return $this->render('ShaimaBundle:template:modifier_type_Meuble.html.twig',array('form'=>$Form->createView()));
     }
-    public function rechercheLibelleAction(Request $request)
-    {
-        $Dons = new stock();
-        $form = $this->createForm(\ShaimaBundle\Form\RechercheType::class, $Dons);
-        $form = $form->handleRequest($request);
-        if ($form->isSubmitted()) {
-            $Dons = $this->getDoctrine()
-                ->getRepository(stock::class)
-                ->findBy(array('type' => $Dons->getType()));
 
-        } else {
-            $Dons = $this->getDoctrine()
-                ->getRepository(stock::class)
-                ->findAll();
-        }
-        return $this->render('ShaimaBundle:template:read_type_Meuble.html.twig',
-            array('form' => $form->createView(), 'Dons' => $Dons));
-    }
+##end_table_stock##
+
+##table meuble##
     public function afficheMeubleAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $Dons= $em->getRepository("ShaimaBundle:Meuble")->findAll();
+        $meuble= $em->getRepository("ShaimaBundle:Meuble")->findAll();
         /**
          * @var $paginator \Knp\Component\Pager\Paginator
          *
          */
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $Dons,
+            $meuble,
             $request->query->getInt('page', 1),
 
             $request->query->getInt('limit', 4)/*nbre d'éléments par page*/
         );
-        return $this->render('ShaimaBundle:template:read_meuble.html.twig',array('Dons'=>$pagination));
+        return $this->render('ShaimaBundle:template:read_meuble.html.twig',array('meuble'=>$pagination));
     }
     public function AjouterMeubleAction(Request $request)
-    { $Stock = new \ShaimaBundle\Entity\Meuble();
-        $form = $this->createForm(\ShaimaBundle\Form\MeubleType::class,$Stock);
+    { $meuble = new \ShaimaBundle\Entity\Meuble();
+        $form = $this->createForm(\ShaimaBundle\Form\MeubleType::class,$meuble);
         $form->handleRequest($request);
         if($form->isSubmitted()&& $form->isValid()){
             /**
              * @var UploadedFile $file
              *
              */
-            $file=$Stock->getImage();
+            $file=$meuble->getImage();
             $fileName =md5(uniqid()).'.'.$file->guessExtension();
-           $file->move(
+            $file->move(
                 $this->getParameter('images_directory'), $fileName);
 
 
-            $Stock->setImage($fileName);
+            $meuble->setImage($fileName);
 
             $entityManager=$this->getDoctrine()->getManager();
-            $entityManager->persist($Stock);
+            $entityManager->persist($meuble);
             $entityManager->flush();
 
             $this->addFlash('meuble',
@@ -172,8 +132,8 @@ class DefaultController extends Controller
     public function deleteMeubleAction($id)
     {
         $em=$this->getDoctrine()->getManager();
-        $Dons=$em->getRepository(Meuble::class)->find($id);
-        $em->remove($Dons);
+        $meuble=$em->getRepository(Meuble::class)->find($id);
+        $em->remove($meuble);
         $em->flush();
         $this->addFlash('meubles',
             ' Meuble Deleted successufly!'
@@ -182,11 +142,11 @@ class DefaultController extends Controller
         return $this->redirectToRoute('AfficherMeuble');
     }
     function modifierMeubleAction(Request $request,$id){
-        $Don =new Meuble();
+        $meuble =new Meuble();
         $em=$this->getDoctrine()->getManager();
-        $Don=$em->getRepository("ShaimaBundle:Meuble")->find($id);
+        $meuble=$em->getRepository("ShaimaBundle:Meuble")->find($id);
 
-        $Form=$this->createForm(MeubleType::class,$Don) ;
+        $Form=$this->createForm(MeubleType::class,$meuble) ;
         $Form->handleRequest($request);
 
 
@@ -197,7 +157,7 @@ class DefaultController extends Controller
 
 
             $entityManager=$this->getDoctrine()->getManager();
-            $entityManager->persist($Don);
+            $entityManager->persist($meuble);
             $entityManager->flush();
 
             $em->flush();
@@ -214,10 +174,10 @@ class DefaultController extends Controller
 
         $pdfOptions->set('defaultFront', 'Arial');
         $em = $this->getDoctrine()->getManager();
-        $Dons = $em->getRepository("ShaimaBundle:Meuble")->findAll();
+        $meuble = $em->getRepository("ShaimaBundle:Meuble")->findAll();
 
         $dompdf = new Dompdf ($pdfOptions);
-        $html = $this->renderView('ShaimaBundle:template:PDF_meuble.html.twig', array( 'Dons' => $Dons)
+        $html = $this->renderView('ShaimaBundle:template:PDF_meuble.html.twig', array( 'meuble' => $meuble)
         );
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'portrait');
@@ -226,11 +186,14 @@ class DefaultController extends Controller
 
 
     }
-    ##front###
-    public function afficheMeubleFAction(Request $request)
+
+##end_table_meuble##
+
+##table_livraison
+    public function afficheLivraisonAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $Dons= $em->getRepository("ShaimaBundle:Meuble")->findAll();
+        $Dons= $em->getRepository("ShaimaBundle:Achat")->findAll();
         /**
          * @var $paginator \Knp\Component\Pager\Paginator
          *
@@ -242,13 +205,94 @@ class DefaultController extends Controller
 
             $request->query->getInt('limit', 4)/*nbre d'éléments par page*/
         );
+        return $this->render('ShaimaBundle:template:read_livraison.html.twig',array('Dons'=>$pagination));
+    }
+##end_table_livraison
+##table_mode
+
+    public function afficheMLivraisonAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $mode= $em->getRepository("ShaimaBundle:livraison")->findAll();
+        return $this->render('ShaimaBundle:template:read_Mlivraison.html.twig',array('mode'=>$mode));
+    }
+    public function addCommandeAction(Request $request){
+        $mode = new \ShaimaBundle\Entity\livraison();
+        $form = $this->createForm(\ShaimaBundle\Form\livraisonType::class,$mode);
+        $form->handleRequest($request);
+        if($form->isSubmitted()&& $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($mode);
+            $em->flush();
+
+            $this->addFlash('commande',
+                ' MODE  Commande  Added successufly!'
+
+            );
+            return $this->redirectToRoute('afficheMLivraison');
+        }
+        return $this->render('ShaimaBundle:template:add_Mlivraison.html.twig', array("form"=>$form->createView()));
+    }
+    public function deleteMlAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $mode=$em->getRepository(livraison::class)->find($id);
+        $em->remove($mode);
+        $em->flush();
+        $this->addFlash('commandes',
+            '  MODE  Commande deleted successufly!'
+
+        );
+        return $this->redirectToRoute('afficheMLivraison');
+    }
+    public function  modifierMLAction(Request $request,$id){
+        $mode =new \ShaimaBundle\Entity\livraison();
+        $em=$this->getDoctrine()->getManager();
+        $mode=$em->getRepository("ShaimaBundle:livraison")->find($id);
+
+        $Form=$this->createForm(livraisonType::class,$mode) ;
+        $Form->handleRequest($request);
+        if($Form->isSubmitted() && $Form->isValid()){
+
+            $em->flush();
+
+            return $this->redirectToRoute('afficheMLivraison');
+
+        }
+        return $this->render('ShaimaBundle:template:modifier_ML.html.twig',array('form'=>$Form->createView()));
+    }
+    public function afficheNotifAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        return $this->render('ShaimaBundle:template:Notif.html.twig');
+    }
+                   ################################
+
+
+    ##front###
+
+    public function afficheMeubleFAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $meuble= $em->getRepository("ShaimaBundle:Meuble")->findAll();
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         *
+         */
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $meuble,
+            $request->query->getInt('page', 1),
+
+            $request->query->getInt('limit', 4)/*nbre d'éléments par page*/
+        );
         return $this->render('ShaimaBundle:templateF:read_meuble.html.twig',array('Dons'=>$pagination));
     }
     public function AchatAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $Dons= $em->getRepository("ShaimaBundle:Meuble")->findAll();
-        return $this->render('ShaimaBundle:templateF:achat.html.twig',array('Dons'=>$Dons));
+        $achat= $em->getRepository("ShaimaBundle:Meuble")->findAll();
+        return $this->render('ShaimaBundle:templateF:achat.html.twig',array('achat'=>$achat));
     }
     public function addAchatAction(Request $request,$id){
         $achat = new \ShaimaBundle\Entity\Achat();
@@ -272,80 +316,6 @@ class DefaultController extends Controller
         }
         return $this->render('ShaimaBundle:templateF:achat.html.twig', array("form"=>$form->createView()));
     }
-
-    public function afficheLivraisonAction(Request $request)
-{
-    $em = $this->getDoctrine()->getManager();
-    $Dons= $em->getRepository("ShaimaBundle:Achat")->findAll();
-    /**
-     * @var $paginator \Knp\Component\Pager\Paginator
-     *
-     */
-    $paginator = $this->get('knp_paginator');
-    $pagination = $paginator->paginate(
-        $Dons,
-        $request->query->getInt('page', 1),
-
-        $request->query->getInt('limit', 4)/*nbre d'éléments par page*/
-    );
-    return $this->render('ShaimaBundle:template:read_livraison.html.twig',array('Dons'=>$pagination));
-}
-    public function afficheMLivraisonAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $Dons= $em->getRepository("ShaimaBundle:livraison")->findAll();
-        return $this->render('ShaimaBundle:template:read_Mlivraison.html.twig',array('Dons'=>$Dons));
-    }
-    public function addCommandeAction(Request $request){
-        $Stock = new \ShaimaBundle\Entity\livraison();
-        $form = $this->createForm(\ShaimaBundle\Form\livraisonType::class,$Stock);
-        $form->handleRequest($request);
-        if($form->isSubmitted()&& $form->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($Stock);
-            $em->flush();
-
-            $this->addFlash('commande',
-                ' MODE  Commande  Added successufly!'
-
-            );
-            return $this->redirectToRoute('afficheMLivraison');
-        }
-        return $this->render('ShaimaBundle:template:add_Mlivraison.html.twig', array("form"=>$form->createView()));
-    }
-    public function deleteMlAction($id)
-    {
-        $em=$this->getDoctrine()->getManager();
-        $stocks=$em->getRepository(livraison::class)->find($id);
-        $em->remove($stocks);
-        $em->flush();
-        $this->addFlash('commandes',
-            '  MODE  Commande deleted successufly!'
-
-        );
-        return $this->redirectToRoute('afficheMLivraison');
-    }
-    public function  modifierMLAction(Request $request,$id){
-        $stock =new \ShaimaBundle\Entity\livraison();
-        $em=$this->getDoctrine()->getManager();
-        $stock=$em->getRepository("ShaimaBundle:livraison")->find($id);
-
-        $Form=$this->createForm(livraisonType::class,$stock) ;
-        $Form->handleRequest($request);
-        if($Form->isSubmitted() && $Form->isValid()){
-
-            $em->flush();
-
-            return $this->redirectToRoute('afficheMLivraison');
-
-        }
-        return $this->render('ShaimaBundle:template:modifier_ML.html.twig',array('form'=>$Form->createView()));
-    }
-    public function afficheNotifAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        return $this->render('ShaimaBundle:template:Notif.html.twig');
-    }
     public function MapAction()
     {
         return $this->render('ShaimaBundle:templateF:map.html.twig');
@@ -354,4 +324,42 @@ class DefaultController extends Controller
     {
         return $this->render('ShaimaBundle:templateF:home.html.twig');
     }
+
+
+
+   ###end_front####
+
+
+
+    ###############
+    public function indexAction()
+    {
+        return $this->render('ShaimaBundle:Default:read_type_Meuble.html.twig');
+    }
+    public function registerAction()
+    {
+        return $this->render('@FOSUser/Registration/register_content.html.twig');
+    }
+    public function pageAction()
+    {
+        return $this->render('ShaimaBundle:Default:page.html.twig');
+    }
+    public function layoutAction()
+    {
+        return $this->render('ShaimaBundle::layout.html.twig');
+    }
+    public function layoutFAction()
+    {
+        return $this->render('ShaimaBundle::layoutF.html.twig');
+    }
+    public function indexxAction()
+    {
+        return $this->render('ShaimaBundle:template:read_type_Meuble.html.twig');
+    }
+    public function wighAction()
+    {
+        return $this->render('ShaimaBundle:template:read_meuble.html.twig');
+    }
+
+
 }

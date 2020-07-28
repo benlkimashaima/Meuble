@@ -1,4 +1,20 @@
-{% extends "@FOSUser/layout.html.twig" %}
+
+{% extends '::baseF.html.twig'  %}
+
+{% block body %}
+
+
+
+
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div >
+
+                    <div class="cta-inner text-center rounded">
+
+
+                        <div class="row">
 
 {% trans_default_domain 'FOSUserBundle' %}
 
@@ -8,3 +24,42 @@
     <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
     {% endif %}
 {% endblock fos_user_content %}
+
+
+
+</div><!--/.col-->
+</div><!--/.row-->
+</div>
+</div>
+</div>
+</section>
+<script>
+    $(document).ready(function(){
+        $('#search').keyup(function(){
+            search_table($(this).val());
+        });
+        function search_table(value){
+            $('#type tbody tr').each(function(){
+                var found = 'false';
+                $(this).each(function(){
+                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                    {
+                        found = 'true';
+                    }
+                });
+                if(found == 'true')
+                {
+                    $(this).show();
+
+                }
+                else
+                {
+                    $(this).hide();
+
+                }
+            });
+        }
+    });
+</script>
+
+{% endblock %}

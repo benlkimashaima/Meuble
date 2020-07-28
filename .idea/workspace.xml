@@ -83,7 +83,7 @@
   <component name="ProjectId" id="1emYHj81aSADFs17Cwl9F8n0MDE" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PI5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/UserBundle" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -94,14 +94,14 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Resources\views\Default" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\shaima\src\UserBundle" />
       <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Form" />
       <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Resources\views\template" />
       <recent name="C:\wamp64\www\shaima\web\tempt" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\shaima\src\ShaimaBundle\Resources\views\Default" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -164,62 +164,12 @@
       <workItem from="1594972032000" duration="20939000" />
       <workItem from="1595231264356" duration="28534000" />
       <workItem from="1595319614652" duration="66890000" />
-      <workItem from="1595837757780" duration="13448000" />
+      <workItem from="1595837757780" duration="14857000" />
+      <workItem from="1595922014151" duration="9580000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>246</line>
-          <properties>
-            <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
-            <option name="methodName" value="AchatAction" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>92</line>
-          <properties>
-            <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
-            <option name="methodName" value="modifierStockAction" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>143</line>
-          <properties>
-            <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
-            <option name="methodName" value="AjouterMeubleAction" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>171</line>
-          <properties>
-            <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
-            <option name="methodName" value="deleteMeubleAction" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/src/ShaimaBundle/Controller/DefaultController.php</url>
-          <line>315</line>
-          <properties>
-            <option name="className" value="\ShaimaBundle\Controller\DefaultController" />
-            <option name="methodName" value="deleteMlAction" />
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

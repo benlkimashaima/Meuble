@@ -36,6 +36,7 @@
                                                                 {{ form_widget(form.prenom, {'attr': { 'class' : 'form-control' , 'style': 'width:450px;','placeholder':"Prenom.....!"}}) }}</label>
                                                             <label >E-mail :
                                                                 {{ form_widget(form.mail, {'attr': { 'class' : 'form-control' , 'style': 'width:450px;','placeholder':"exemple@gmail.com  "}}) }}</label>
+                                                            {{ form_errors(form.mail) }}
                                                             <label>Ville :
                                                                 {{ form_widget(form.ville, {'attr': { 'class' : 'form-control' , 'style': 'width:450px;','placeholder':"Ville.....!"}}) }}</label>
                                                             <label>Commande :

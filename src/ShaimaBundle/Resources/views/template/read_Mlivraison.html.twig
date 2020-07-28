@@ -29,13 +29,13 @@
                                 <div class="fixed-table-container">
                                     <div class="fixed-table-header">
                                         {% for message in app.flashes('commande') %}
-                                            <div class="alert bg-danger" role="alert">
+                                            <div class="alert bg-success" role="alert">
                                                 <svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"></use></svg>
                                                 {{message}} <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
                                             </div>                                    {% endfor %}
 
                                         {% for message in app.flashes('commandes') %}
-                                            <div class="alert bg-success" role="alert">
+                                            <div class="alert bg-danger" role="alert">
                                                 <svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"></use></svg>
                                                 {{message}} <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
                                             </div>                                      {% endfor %}
@@ -52,14 +52,14 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for Dons in Dons %}
+                                            {% for mode in mode %}
 
                                                 <tr class="no-records-found">
-                                                    <td colspan="4">{{ Dons.type }}</td>
+                                                    <td colspan="4">{{ mode.type }}</td>
                                                     <td>
-                                                        <a  href="{{path('modifierML',{'id':Dons.id})}}">
+                                                        <a  href="{{path('modifierML',{'id':mode.id})}}">
                                                             Modifier
-                                                            <a  href="{{path('deleteMl',{'id':Dons.id})}}" >
+                                                            <a  href="{{path('deleteMl',{'id':mode.id})}}" >
                                                                 Supprimer
                                                                 <div>      </div></a>
                                                     </td>

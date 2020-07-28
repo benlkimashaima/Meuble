@@ -3,6 +3,10 @@
 namespace ShaimaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
+
 
 /**
  * Achat
@@ -18,6 +22,7 @@ class Achat
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      */
     private $id;
 
@@ -25,6 +30,7 @@ class Achat
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @Assert\Regex(pattern="/[A-Za-z]$/", message="saisie une chaine de charactere")
      */
     private $nom;
 
@@ -32,6 +38,7 @@ class Achat
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255)
+     * @Assert\Regex(pattern="/[A-Za-z]$/", message="saisie une chaine de charactere")
      */
     private $prenom;
 
@@ -39,6 +46,8 @@ class Achat
      * @var string
      *
      * @ORM\Column(name="mail", type="string", length=255)
+     *  @Assert\Email(message = "The email is not a valid email.")
+     *
      */
     private $mail;
 
@@ -46,6 +55,7 @@ class Achat
      * @var string
      *
      * @ORM\Column(name="ville", type="string", length=255)
+     * @Assert\Regex(pattern="/[A-Za-z]$/", message="saisie une chaine de charactere")
      */
     private $ville;
     /**
@@ -58,6 +68,7 @@ class Achat
      *  @var string
      *
      * @ORM\Column(name="libelle", type="string", length=255)
+     * @Assert\Regex(pattern="/[A-Za-z]$/", message="saisie une chaine de charactere")
      */
     private $libelle;
 

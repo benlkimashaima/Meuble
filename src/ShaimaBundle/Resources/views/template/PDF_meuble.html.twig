@@ -31,14 +31,14 @@
                     </tr>
                     </thead>
                     <tbody  >
-                    {% for don in Dons %}
+                    {% for meuble in meuble %}
                         <tr class="text-center" bgcolor="#fff0f5">
-                            <td >{{ don.libelle  | upper}}</td>
-                            <td>{{ don.quantite}}</td>
-                            <td>{{ don.prix}}</td>
-                            <td colspan="2"><img src ="{{ pathToWeb ~  asset('uploads/images/'~don.image ) }}" height="100px" width="250px"> </td>
-                            <td colspan="10">{{ don.date|date("m-d-y")}}</td>
-                            <td colspan="4">{{ don.stock.type}}</td>
+                            <td >{{ meuble.libelle  | upper}}</td>
+                            <td>{{ meuble.quantite}}</td>
+                            <td>{{ meuble.prix}}</td>
+                            <td colspan="2"><img src ="{{ pathToWeb ~  asset('uploads/images/'~meuble.image ) }}" height="100px" width="250px"> </td>
+                            <td colspan="10">{{ meuble.date|date("m-d-y")}}</td>
+                            <td colspan="4">{{ meuble.stock.type}}</td>
 
 
 

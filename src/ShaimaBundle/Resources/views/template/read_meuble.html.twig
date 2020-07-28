@@ -55,25 +55,25 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for don in Dons %}
+                                        {% for meuble in meuble %}
 
                                             <tr class="no-records-found">
-                                                <td colspan="4">{{ don.libelle | upper }}</td>
-                                                <td colspan="4">{{ don.quantite}}</td>
-                                                <td colspan="4">{{ don.prix }}</td>
-                                                <td colspan="4"><img src ="{{ asset('uploads/images/'~don.image ) }}" height="100px" width="250px"> </td>
-                                                <td colspan="4">{{ don.date|date("m-d-y")}}</td>
-                                                <td colspan="4">{{ don.stock.type}}</td>
+                                                <td colspan="4">{{ meuble.libelle | upper }}</td>
+                                                <td colspan="4">{{ meuble.quantite}}</td>
+                                                <td colspan="4">{{ meuble.prix }}</td>
+                                                <td colspan="4"><img src ="{{ asset('uploads/images/'~meuble.image ) }}" height="100px" width="250px"> </td>
+                                                <td colspan="4">{{ meuble.date|date("m-d-y")}}</td>
+                                                <td colspan="4">{{ meuble.stock.type}}</td>
 
 
 
 
                                                 <td  >
-                                                    <a  href="{{path('modifiermeuble',{'id':don.id})}}" class="btn btn-blue btn-round"  >
+                                                    <a  href="{{path('modifiermeuble',{'id':meuble.id})}}" class="btn btn-blue btn-round"  >
                                                         Modifier
                                                         <div >    </div></a>
 
-                                                    <a  href="{{path('deleteMeuble',{'id':don.id})}}" class="btn btn-blue btn-round"   >
+                                                    <a  href="{{path('deleteMeuble',{'id':meuble.id})}}" class="btn btn-blue btn-round"   >
                                                         Supprimer
                                                         <div ></div></a>
                                                 </td>
@@ -92,7 +92,7 @@
 
                                     </div>
                                                    <div class="navigation">
-                                                       {{ knp_pagination_render(Dons) }}
+                                                       {{ knp_pagination_render(meuble) }}
                                                    </div>
                                 </div>
 
