@@ -31,18 +31,18 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
     <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">L’ART DU MEUBLE</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item active px-lg-4">
+            <ul class="navbar-nav  active mx-auto">
+                <li class="nav-item  px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="{{path('home')}}">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item px-lg-4">
+                <li class="nav-item   px-lg-4">
                     <a class="nav-link text-uppercase text-expanded" href="{{path('AfficherMeubleF')}}">Articles</a>
                 </li>
                 <li class="nav-item px-lg-4">
@@ -59,11 +59,12 @@
                         <i class="material-icons"></i>
                     </a>
                 </li>
-                <li class="button-container nav-item iframe-extern">
-                    <a href="{{ path('fos_user_security_logout') }}" target="_blank" class="btn  btn-primary   btn-round btn-block">
-                        <i class="material-icons">person</i> Logout
-                        <div class="ripple-container"></div></a>
-                </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{ path('fos_user_security_logout') }}">
+                            Logout
+                        </a>
+                    </li>
+
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
                     </li>
@@ -82,7 +83,6 @@
 {% endblock %}
 <footer class="footer text-faded text-center py-5">
     <div class="container">
-        <p class="m-0 small">Copyright &copy; Your Website 2020</p>
 
         <a href="http://twitter.com/share" class="twitter-share-button"
            data-count="vertical" data-via="InfoWebMaster">Tweet</a>

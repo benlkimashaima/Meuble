@@ -97,3 +97,6 @@ fos_user:
     from_email:
         address: "shaima.benlkima@esprit.tn"
         sender_name: "shaima"
+
+
+gregwar_captcha: ~

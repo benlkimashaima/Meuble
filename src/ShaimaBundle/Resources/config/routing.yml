@@ -11,52 +11,52 @@ wight:
   path:     /wight
   defaults: { _controller: ShaimaBundle:Default:wigh }
 AfficherStock:
-  path:     /AfficherStock
+  path:     /admin/AfficherStock
   defaults: { _controller: ShaimaBundle:Default:afficheStock }
 deleteStock:
-  path:     /deleteStock/{id}
+  path:     /admin/deleteStock/{id}
   defaults: { _controller: ShaimaBundle:Default:deleteStock }
 ajouterStock:
-  path:     /ajouterStock
+  path:     /admin/ajouterStock
   defaults: { _controller: ShaimaBundle:Default:ajouterStock }
 modifierStock:
-  path:     /modifierStock/{id}
+  path:     /admin/modifierStock/{id}
   defaults: { _controller: ShaimaBundle:Default:modifierStock }
 AfficherMeuble:
-  path:     /AfficherMeuble
+  path:     /admin/AfficherMeuble
   defaults: { _controller: ShaimaBundle:Default:afficheMeuble }
 ajouterMeuble:
-  path:     /ajouterMeuble
+  path:     /admin/ajouterMeuble
   defaults: { _controller: ShaimaBundle:Default:AjouterMeuble}
 deleteMeuble:
-  path:     /deleteMeuble/{id}
+  path:     /admin/deleteMeuble/{id}
   defaults: { _controller: ShaimaBundle:Default:deleteMeuble }
 modifiermeuble:
-  path:     /modifiermeuble/{id}
+  path:     /admin/modifiermeuble/{id}
   defaults: { _controller: ShaimaBundle:Default:modifierMeuble }
-refugee_afficherDetasille:
-  path:     /pdf
+imprimer:
+  path:     /admin/pdf
   defaults: { _controller: ShaimaBundle:Default:pdf }
 refugee_afficherDetaille:
-  path:     /afficherD/{id}
+  path:     /admin/afficherD/{id}
   defaults: { _controller: ShaimaBundle:Default:afficherDetaille }
 AfficherMeubleF:
   path:     /AfficherMeubleF
   defaults: { _controller: ShaimaBundle:Default:afficheMeubleF }
 AchatAdd:
-  path:     /addachat/{id}
+  path:     /admin/addachat/{id}
   defaults: { _controller: ShaimaBundle:Default:addAchat}
 
 afficheLivraison:
-  path:     /afficheLivraison
+  path:     /admin/afficheLivraison
   defaults: { _controller: ShaimaBundle:Default:afficheLivraison }
 
 afficheMLivraison:
-  path:     /afficheMLivraison
+  path:     /admin/afficheMLivraison
   defaults: { _controller: ShaimaBundle:Default:afficheMLivraison }
 CommandeAdd:
-  path:     /addCommande
-  defaults: { _controller: ShaimaBundle:Default:addCommande}
+  path:     /addMLivraison
+  defaults: { _controller: ShaimaBundle:Default:addMLivraison}
 deleteMl:
   path:     /deleteML/{id}
   defaults: { _controller: ShaimaBundle:Default:deleteML }
@@ -64,7 +64,7 @@ modifierML:
   path:     /modifierML/{id}
   defaults: { _controller: ShaimaBundle:Default:modifierML }
 Notif:
-  path:     /Notif
+  path:     /admin/Notif
   defaults: { _controller: ShaimaBundle:Default:afficheNotif }
 map:
   path:     /map

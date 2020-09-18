@@ -16,6 +16,11 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <h2 class="section-heading mb-5">
+                        {% for message in app.flashes('addl') %}
+                            <div class="alert bg-success" role="alert">
+                                <svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"></use></svg>
+                                {{message}} <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                            </div>                                    {% endfor %}
                         <span class="section-heading-upper">  Meubles </span>
                         <span class="section-heading-lower">Les Articles</span>
 
@@ -39,35 +44,31 @@
                                                     <td colspan="4">libelle</td>
                                                     <td colspan="4">prix</td>
                                                     <td colspan="4">image</td>
-                                                    <td colspan="4">date</td>
                                                     <td colspan="4">type</td>
-                                                    <td colspan="4">Quantite</td>
+                                                    <td colspan="4">On/Off stocks</td>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                {% for don in Dons %}
+                                                {% for meuble in meuble %}
 
                                                     <tr class="no-records-found">
-                                                        <td colspan="4">{{ don.libelle | upper }}</td>
+                                                        <td colspan="4">{{ meuble.libelle | upper }}</td>
 
-                                                        <td colspan="4">{{ don.prix }} DT</td>
-                                                        <td colspan="4"><img src ="{{ asset('uploads/images/'~don.image ) }}" height="100px" width="250px"> </td>
-                                                        <td colspan="4">{{ don.date|date("m-d-y")}}</td>
-                                                        <td colspan="4">{{ don.stock.type}}</td>
-                                                        <td colspan="4"> {% if don.quantite > 3 %}
+                                                        <td colspan="4">{{ meuble.prix }} DT</td>
+                                                        <td colspan="4"><img src ="{{ asset('uploads/images/'~meuble.image ) }}" height="100px" width="250px"> </td>
+                                                        <td colspan="4">{{ meuble.stock.type}}</td>
+                                                        <td colspan="4"> {% if meuble.quantite > 2 %}
 
                                                                 <h4 class=" alert alert-success"> {{"ON STOCKS" }}</h4>
                                                         <td>
                                                             {% if is_granted('ROLE_USER')   %}
 
-                                                            <a  href="{{path('AchatAdd',{'id':don.id})}}"  >
+                                                            <a  href="{{path('AchatAdd',{'id':meuble.id})}}"  >
                                                                 Achat en ligne
                                                                 <div >    </div></a>
                                                             {% else %}
                                                                 <a  href="{{path('fos_user_security_login')}}"  >
-                                                                    Achat en ligne
-                                                                    <div >    </div></a>
-                                                            {% endif %}
+                                                                    Connectez-vous pour commander                                                            {% endif %}
 
 
                                                         </td>
@@ -82,7 +83,7 @@
                                                 </tbody>
                                             </table>
                                             <div class="navigation">
-                                                {{ knp_pagination_render(Dons) }}
+                                                {{ knp_pagination_render(meuble ) }}
                                             </div>
                                         </div>
 

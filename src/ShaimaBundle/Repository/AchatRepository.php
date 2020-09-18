@@ -9,16 +9,5 @@ namespace ShaimaBundle\Repository;
  * repository methods below.
  */
 class AchatRepository extends \Doctrine\ORM\EntityRepository
-{public function updateCapacityMinus($id){
-    $em = $this->getEntityManager();
-    $query = $em->createQuery(
-        '
-        update ShaimaBundle:Meuble c set c.quantite = (c.quantite-1) 
-        where c.id = :id'
-
-    )->setParameter('id', $id)->getResult();
-    return $query;
-
-
-}
+{
 }

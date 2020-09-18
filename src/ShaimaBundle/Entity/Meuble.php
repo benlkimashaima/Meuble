@@ -224,7 +224,5 @@ class Meuble
     {
         return $this->date;
     }
-
-
 }
 

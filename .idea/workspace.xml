@@ -78,6 +78,10 @@
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/gregwar/captcha-bundle" />
+      <path value="$PROJECT_DIR$/vendor/gregwar/captcha" />
+      <path value="$PROJECT_DIR$/vendor/webeweb/highcharts-bundle" />
+      <path value="$PROJECT_DIR$/vendor/webeweb/core-library" />
     </include_path>
   </component>
   <component name="ProjectId" id="1emYHj81aSADFs17Cwl9F8n0MDE" />
@@ -165,7 +169,14 @@
       <workItem from="1595231264356" duration="28534000" />
       <workItem from="1595319614652" duration="66890000" />
       <workItem from="1595837757780" duration="14857000" />
-      <workItem from="1595922014151" duration="9580000" />
+      <workItem from="1595922014151" duration="18515000" />
+      <workItem from="1596526228940" duration="6325000" />
+      <workItem from="1597742034875" duration="307000" />
+      <workItem from="1598959486149" duration="1410000" />
+      <workItem from="1598963282250" duration="866000" />
+      <workItem from="1598983797958" duration="880000" />
+      <workItem from="1599558345887" duration="6828000" />
+      <workItem from="1600437506628" duration="2103000" />
     </task>
     <servers />
   </component>

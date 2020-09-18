@@ -68,7 +68,7 @@ class Achat
      *  @var string
      *
      * @ORM\Column(name="libelle", type="string", length=255)
-     * @Assert\Regex(pattern="/[A-Za-z]$/", message="saisie une chaine de charactere")
+     *
      */
     private $libelle;
 
@@ -183,16 +183,5 @@ class Achat
     {
         $this->livraison = $livraison;
     }
-
-
-
-
-
-
-
-
-
-
-
 }
 

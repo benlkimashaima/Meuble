@@ -53,15 +53,15 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                {% for don in Dons %}
+                                                {% for achat in achats %}
 
                                                     <tr class="no-records-found">
-                                                        <td colspan="4">{{ don.nom }}</td>
-                                                        <td colspan="4">{{ don.prenom}}</td>
-                                                        <td colspan="4">{{ don.mail }}</td>
-                                                        <td colspan="4">{{ don.ville }}</td>
-                                                        <td colspan="4">{{ don.libelle | upper}}</td>
-                                                        <td colspan="4">{{ don.livraison.type}}</td>
+                                                        <td colspan="4">{{ achat.nom }}</td>
+                                                        <td colspan="4">{{ achat.prenom}}</td>
+                                                        <td colspan="4">{{ achat.mail }}</td>
+                                                        <td colspan="4">{{ achat.ville }}</td>
+                                                        <td colspan="4">{{ achat.libelle | upper}}</td>
+                                                        <td colspan="4">{{ achat.livraison.type}}</td>
 
 
 
@@ -75,7 +75,7 @@
                                             <div >
 
                                                 <div class="navigation">
-                                                    {{ knp_pagination_render(Dons) }}
+                                                    {{ knp_pagination_render(achats) }}
                                                 </div>
 
                                             </div>
@@ -101,23 +101,15 @@
             });
             function search_table(value){
                 $('#type tbody tr').each(function(){
-                    var found = 'false';
+                    let found = 'false';
                     $(this).each(function(){
                         if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
                         {
                             found = 'true';
                         }
                     });
-                    if(found == 'true')
-                    {
-                        $(this).show();
+                    $(this).toggle((found === 'true'));
 
-                    }
-                    else
-                    {
-                        $(this).hide();
-
-                    }
                 });
             }
         });

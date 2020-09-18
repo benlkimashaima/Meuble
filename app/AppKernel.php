@@ -22,6 +22,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+            new WBW\Bundle\HighchartsBundle\HighchartsBundle(),
 
 
         ];
